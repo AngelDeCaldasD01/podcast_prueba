@@ -1,0 +1,43 @@
+.card-root {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  min-height: 200px;
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    gap: 8px;
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    align-items: center;
+    justify-content: flex-end;
+    .card-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .card-author {
+      font-size: 14px;
+      color: gray;
+    }
+  }
+
+  .card-content-img {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    .card-img {
+      display: flex;
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 100%;
+      position: absolute;
+      top: 20px;
+    }
+  }
+}
