@@ -1,0 +1,10 @@
+.layout {
+  display: grid;
+  height: 100%;
+  overflow-x: hidden;
+  .content {
+    display: flex;
+    padding: 1em;
+    height: calc(100vh - 54.25px - 2em);
+  }
+}

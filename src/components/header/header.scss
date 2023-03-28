@@ -1,0 +1,12 @@
+@import './../../styles/base/_fonts.scss';
+
+header {
+  padding: 0.8rem 0rem 0rem 0rem;
+
+  .header-content {
+    padding-bottom: 0.8rem;
+    margin: 0rem 1rem 0rem 1rem;
+    @include header-title;
+    border-bottom: 1px solid #e9e9e9;
+  }
+}

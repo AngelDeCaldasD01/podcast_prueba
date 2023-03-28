@@ -1,3 +1,3 @@
 export function Main() {
-  return <></>;
+  return <div>a</div>;
 }
