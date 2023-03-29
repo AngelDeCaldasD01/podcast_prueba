@@ -22,17 +22,16 @@ const mainStore = create<MainState>((set, get) => ({
       const responseData = result.data.feed.entry;
       const parsedData: MainModel[] = responseData.map((podcast: any) => {
         return {
+          id: podcast.id.attributes['im:id'],
           title: podcast['im:name'].label,
           author: podcast['im:artist'].label,
-          image: podcast['im:image'][2].label
+          image: podcast['im:image'][2].label,
+          summary: podcast.summary.label
         };
       });
       set({ list: parsedData });
     } catch (error: any) {
       set({ list: [] as MainModel[] });
-      throw new Error(
-        `Error al recuperar los datos. Por favor inténtelo de nuevo más tarde. (${error.message})`
-      );
     } finally {
       // clearTimeout(timer);
       set({ isLoadingList: false });
