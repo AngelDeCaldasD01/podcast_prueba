@@ -1,9 +1,8 @@
 export default interface PodcastDetailModel {
-  id: string;
-  // urlImage600: string;
-  // collectionName: string;
-  // description: string;
-  artistName: string;
+  title: string;
   releaseDate: string;
   trackTimeMillis: number;
+  episodeUrl: string;
+  description: string;
+  trackId: string;
 }

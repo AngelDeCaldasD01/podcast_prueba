@@ -6,10 +6,11 @@ import { AppRoutes } from './routes';
 export const RouterComponentPodcaster: FunctionComponent = () => {
   return (
     <Routes>
-      <Route path="*" element={<Navigate replace to="/podcaster" />} />
+      <Route path="*" element={<Navigate replace to={AppRoutes.root} />} />
       <Route path={AppRoutes.root} element={<Main />} />
-      <Route path={AppRoutes.podcastDetail} element={<PodcastDetail />} />
-      <Route path={AppRoutes.episodeDetail} element={<PodcastDetailEpisode />} />
+      <Route path={AppRoutes.podcastDetail} element={<PodcastDetail />}>
+        <Route path={AppRoutes.episodeDetail} element={<PodcastDetailEpisode />} />
+      </Route>
     </Routes>
   );
 };

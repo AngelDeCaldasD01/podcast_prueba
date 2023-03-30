@@ -14,19 +14,21 @@ const podcastDetailStore = create<PodcastDetailState>((set, get) => ({
   getItem: async (id: string) => {
     try {
       set({ isLoadingList: true });
-
+      console.log(id);
       const result = await apiCall({
-        url: `https://api.allorigins.win/raw?url=https://itunes.apple.com/lookup?id=${id}&country=US&media=podcast&entity=podcastEpisode`
+        url: `https://itunes.apple.com/lookup?id=${id}&country=US&media=podcast&entity=podcastEpisode`
       });
       console.log(result);
       const responseData = result.data.results;
 
       const parsedData: PodcastDetailModel[] = responseData.map((podcast: any) => {
         return {
-          id: podcast.artistId,
-          artistName: podcast.artistName,
+          title: podcast.trackName,
           releaseDate: podcast.releaseDate,
-          trackTimeMillis: podcast.trackTimeMillis
+          trackTimeMillis: podcast.trackTimeMillis,
+          episodeUrl: podcast.episodeUrl,
+          description: podcast.description,
+          trackId: podcast.trackId
         };
       });
       set({ item: parsedData });
