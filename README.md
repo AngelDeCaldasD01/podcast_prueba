@@ -2,7 +2,7 @@
 
 #### Guía para ejecutar el proyecto
 
-Para production:
+Para producción:
 
 ```sh
 npm run start:prod
