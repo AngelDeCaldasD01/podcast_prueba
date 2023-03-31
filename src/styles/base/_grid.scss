@@ -1,8 +1,93 @@
+@mixin animations() {
+  .loader-6 {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 32px;
+    height: 28px;
+    width: 28px;
+  }
+  .loader-6 span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: 28px;
+    width: 28px;
+  }
+  .loader-6 span::before,
+  .loader-6 span::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: 28px;
+    width: 28px;
+    border: 4px solid #347fb6;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-animation: loader-6-1 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+    animation: loader-6-1 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+  }
+  @-webkit-keyframes loader-6-1 {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0) scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translate3d(0, 0, 0) scale(1.5);
+      opacity: 0.5;
+    }
+  }
+  @keyframes loader-6-1 {
+    0% {
+      transform: translate3d(0, 0, 0) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(0, 0, 0) scale(1.5);
+      opacity: 0;
+    }
+  }
+  .loader-6 span::after {
+    -webkit-animation: loader-6-2 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s infinite;
+    animation: loader-6-2 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s infinite;
+  }
+  @-webkit-keyframes loader-6-2 {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0) scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translate3d(0, 0, 0) scale(1);
+      opacity: 0;
+    }
+  }
+  @keyframes loader-6-2 {
+    0% {
+      transform: translate3d(0, 0, 0) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 0;
+    }
+  }
+}
+
 .main-content {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 24px;
+  @include animations();
+
   .grid-template {
     display: grid;
     gap: 50px 1.5rem;
@@ -33,6 +118,7 @@
   display: flex;
   width: 100%;
   gap: 100px;
+  @include animations();
   .detail-template-episodes {
     display: flex;
     flex-direction: column;
@@ -42,6 +128,8 @@
       padding: 0.8em;
       border-radius: 4px;
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      font-size: 24px;
+      font-weight: bold;
     }
   }
   .detail-template-content {
@@ -53,12 +141,21 @@
       display: table;
       width: 100%;
       font-size: 20px;
+      border-collapse: collapse;
+      border-spacing: 0;
       thead {
         tr {
           th {
             font-weight: bold;
             text-align: start;
             padding: 8px 0px;
+            border-bottom: 1px solid grey;
+          }
+          th:first-child {
+            padding-left: 8px;
+          }
+          th:last-child {
+            padding-right: 8px;
           }
         }
       }
@@ -66,16 +163,46 @@
         tr {
           td {
             padding: 8px 0px;
+            border-bottom: 1px solid grey;
           }
           td:first-child {
             color: #347fb6;
             cursor: pointer;
+            padding-left: 8px;
+            a {
+              text-decoration: none;
+              color: #347fb6;
+            }
+          }
+          td:last-child {
+            padding-right: 8px;
           }
         }
-        tr:nth-child(even) {
-          background-color: #d9d8d8;
+        tr:nth-child(odd) {
+          background-color: #ececec;
         }
       }
+    }
+  }
+  .detail-template-episode {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    height: fit-content;
+    border-radius: 3px;
+    .detail-template-episode-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    .detail-template-episode-detail {
+      font-size: 16px;
+      margin-bottom: 36px;
+    }
+    .detail-template-episode-tracker audio {
+      width: 100%;
+      height: 40px;
     }
   }
 }

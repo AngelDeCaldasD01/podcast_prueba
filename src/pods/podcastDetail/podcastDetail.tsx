@@ -8,16 +8,22 @@ import PodcastDetailModel from './utils/podcastDetail.model';
 import React from 'react';
 
 export function PodcastDetail() {
-  const { item } = PodcastDetailController();
+  const { item, isLoadingList } = PodcastDetailController();
   const itemSlice = [...item].slice(1);
   const { episodeId } = useParams();
-  const [foundEpisode, setFoundEpisode] = useState<PodcastDetailModel[] | undefined>();
+  const [foundEpisode, setFoundEpisode] = useState<PodcastDetailModel | undefined>();
 
   useEffect(() => {
-    setFoundEpisode([...itemSlice].filter((x) => x.trackId == episodeId));
+    setFoundEpisode([...itemSlice].filter((x) => x.trackId == episodeId)[0]);
   }, [episodeId]);
+
   return (
     <div className="detail-content">
+      {isLoadingList && (
+        <div className="loader-6 center">
+          <span></span>
+        </div>
+      )}
       <div className="detail-template-info">
         <CardDetail />
       </div>
@@ -52,21 +58,16 @@ export function PodcastDetail() {
       )}
       {episodeId &&
         foundEpisode &&
-        (console.log(foundEpisode[0]?.description),
+        (console.log(foundEpisode?.description),
         (
           <div className="detail-template-episode">
-            <div className="detail-template-episode-title">{foundEpisode[0]?.title}</div>
-            {/* <div
-              className="detail-template-episode-description"
-              dangerouslySetInnerHTML={{ __html: foundEpisode[0]?.description }}
-            /> */}
-
-            {React.createElement('div', {
-              dangerouslySetInnerHTML: { __html: foundEpisode[0]?.description }
-            })}
-
+            <div className="detail-template-episode-title">{foundEpisode?.title}</div>
+            <div
+              className="detail-template-episode-detail"
+              dangerouslySetInnerHTML={{ __html: foundEpisode?.description }}
+            />
             <div className="detail-template-episode-tracker">
-              <audio controls src={foundEpisode[0]?.episodeUrl} />
+              <audio controls src={foundEpisode?.episodeUrl} />
             </div>
           </div>
         ))}

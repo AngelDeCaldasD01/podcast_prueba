@@ -11,16 +11,33 @@
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     padding: 1rem;
     border-radius: 4px;
-    min-width: 200px;
+    min-width: 250px;
     .cardDetail-title {
-      font-size: 14px;
+      margin-top: 16px;
+      padding-top: 24px;
+      border-top: 1px solid gray;
+      font-weight: bold;
+      font-size: 20px;
       text-transform: uppercase;
-      font-weight: 600;
+      cursor: pointer;
+      text-transform: initial;
     }
 
     .cardDetail-author {
       font-size: 14px;
-      color: gray;
+    }
+
+    .cardDetail-description-title {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid gray;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .cardDetail-description {
+      hyphens: auto; /* permitir división de palabras con guiones */
+      word-break: break-all; /* permitir división de palabras */
     }
   }
 
@@ -28,11 +45,11 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    margin-bottom: 16px;
     .cardDetail-img {
       display: flex;
       object-fit: cover;
       border-radius: 8px;
+      cursor: pointer;
     }
   }
 }
