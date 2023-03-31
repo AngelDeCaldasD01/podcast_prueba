@@ -29,7 +29,7 @@ export function PodcastDetail() {
       </div>
       {!episodeId && (
         <div className="detail-template-episodes">
-          <div className="detail-template-title">Episodes: {item.length}</div>
+          <div className="detail-template-title">Episodes: {item.length - 1}</div>
           <div className="detail-template-content">
             <table>
               <thead>
