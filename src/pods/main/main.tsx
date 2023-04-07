@@ -33,7 +33,12 @@ export function Main() {
     <div className="main-content">
       <div className="searchbar-content">
         <div className="searchbar-content-length">{filterList.length}</div>
-        <input key={'searchbar'} onChange={handleSearchChange} placeholder={'Filter podcast...'} />
+        <input
+          id="searchbar"
+          key={'searchbar'}
+          onChange={handleSearchChange}
+          placeholder={'Filter podcast...'}
+        />
       </div>
       <div className="grid-template">
         {filterList.map((x: MainModel) => (
