@@ -56,21 +56,18 @@ export function PodcastDetail() {
           </div>
         </div>
       )}
-      {episodeId &&
-        foundEpisode &&
-        (console.log(foundEpisode?.description),
-        (
-          <div className="detail-template-episode">
-            <div className="detail-template-episode-title">{foundEpisode?.title}</div>
-            <div
-              className="detail-template-episode-detail"
-              dangerouslySetInnerHTML={{ __html: foundEpisode?.description }}
-            />
-            <div className="detail-template-episode-tracker">
-              <audio controls src={foundEpisode?.episodeUrl} />
-            </div>
+      {episodeId && foundEpisode && (
+        <div className="detail-template-episode">
+          <div className="detail-template-episode-title">{foundEpisode?.title}</div>
+          <div
+            className="detail-template-episode-detail"
+            dangerouslySetInnerHTML={{ __html: foundEpisode?.description }}
+          />
+          <div className="detail-template-episode-tracker">
+            <audio controls src={foundEpisode?.episodeUrl} />
           </div>
-        ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -14,11 +14,11 @@ const podcastDetailStore = create<PodcastDetailState>((set, get) => ({
   getItem: async (id: string) => {
     try {
       set({ isLoadingList: true });
-      console.log(id);
+
       const result = await apiCall({
         url: `https://itunes.apple.com/lookup?id=${id}&country=US&media=podcast&entity=podcastEpisode`
       });
-      console.log(result);
+
       const responseData = result.data.results;
 
       const parsedData: PodcastDetailModel[] = responseData.map((podcast: any) => {
