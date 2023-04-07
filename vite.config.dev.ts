@@ -13,9 +13,10 @@ export default defineConfig({
   },
   server: {
     open: true,
+    host: true,
     port: 8080
   },
   preview: {
-    port: 3001
+    port: 8081
   }
 });
