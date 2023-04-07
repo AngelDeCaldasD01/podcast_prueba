@@ -5,11 +5,11 @@
 Para producción:
 
 ```sh
-npm run start:prod
+npm run build
 ```
 
 Para desarrollo:
 
 ```sh
-npm run start:dev
+npm run dev
 ```
