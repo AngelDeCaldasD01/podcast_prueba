@@ -16,7 +16,7 @@ const podcastDetailStore = create<PodcastDetailState>((set, get) => ({
       set({ isLoadingList: true });
 
       const result = await apiCall({
-        url: `https://itunes.apple.com/lookup?id=${id}&country=US&media=podcast&entity=podcastEpisode`
+        url: `https://api.allorigins.win/raw?url=https://itunes.apple.com/lookup?id=${id}&country=US&media=podcast&entity=podcastEpisode`
       });
 
       const responseData = result.data.results;

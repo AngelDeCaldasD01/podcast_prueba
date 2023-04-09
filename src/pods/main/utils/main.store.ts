@@ -17,7 +17,7 @@ const mainStore = create<MainState>((set, get) => ({
       set({ isLoadingList: true });
 
       const result = await apiCall({
-        url: 'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json'
+        url: 'https://api.allorigins.win/raw?url=https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json'
       });
       const responseData = result.data.feed.entry;
       const parsedData: MainModel[] = responseData.map((podcast: any) => {
